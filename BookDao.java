@@ -188,66 +188,6 @@ public class BookDao {
 	
 	 
 	
-	/**
 	
-	 * 查询总记录数
-	
-	 * @return 总记录数
-	
-	 */
-	
-	public int findCount(){
-	
-		// 总记录数
-		
-		int count = 0;
-		
-		// 获取数据库连接
-		
-		Connection conn = getConnection();
-		
-		// 查询总记录数SQL语句
-		
-		String sql = "select count(*) from tb_product";
-		
-		try {
-		
-			// 创建Statement
-			
-			Statement stmt = conn.createStatement();
-			
-			// 查询并获取ResultSet
-			
-			ResultSet rs = stmt.executeQuery(sql);
-			
-			// 光标向后移动，并判断是否有效
-			
-			if(rs.next()){
-			
-				// 对总记录数赋值
-				
-				count = rs.getInt(1);
-			
-			}
-			
-			// 关闭ResultSet
-			
-			rs.close();
-			
-			// 关闭Connection
-			
-			conn.close();
-			
-		} catch (SQLException e) {
-		
-			e.printStackTrace();
-		
-		}
-		
-		// 返回总记录数
-		
-		return count;
-	
-	}
 
 }
